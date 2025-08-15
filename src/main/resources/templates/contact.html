@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact - Akashkumar Singh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="main-bg">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm px-3">
+    <a class="navbar-brand fw-bold" href="/">Akash</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="/experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container py-5">
+    <h2 class="text-center mb-4 rainbow-text">Contact Me</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form th:action="@{/submit-feedback}" method="post" class="bg-dark text-white p-4 rounded shadow-lg">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" name="name" id="name" required placeholder="Enter your name" />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email" required placeholder="Enter your email" />
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea class="form-control" name="message" id="message" rows="4" required placeholder="Enter your message here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-info nav-btn w-100">Send Feedback</button>
+            </form>
+
+            <div class="alert alert-success mt-4" th:if="${success}">
+                ✅ Thank you for your feedback!
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    &copy; 2025 Akashkumar Singh
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.remove('main-bg');
+        toggle.checked = false;
+    } else {
+        body.classList.add('main-bg');
+        toggle.checked = true;
+    }
+    toggle?.addEventListener('change', () => {
+        if (toggle.checked) {
+            body.classList.add('main-bg');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('main-bg');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+</body>
+</html>

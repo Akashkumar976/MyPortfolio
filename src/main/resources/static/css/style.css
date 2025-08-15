@@ -1,0 +1,187 @@
+/* === Base Layout === */
+body.main-bg {
+    background: linear-gradient(to bottom right, #1e1e2f, #34344e);
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+body.main-bg, 
+body.main-bg h1, h2, h3, h4, p, li, a, label {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+marquee{
+    font-size: larger;
+    background-color: rgb(0,0,0,0.15);
+}
+
+p, li {
+    font-size: 1.05rem;
+}
+
+a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00ffc3;
+    text-decoration: underline;
+}
+
+/* === Social Profile Buttons === */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff0066, #ffcc00, #00ccff);
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+/* === Buttons === */
+.nav-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    text-shadow: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* === Rainbow Background Cards (Enhanced Project/Experience) === */
+.card {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ff6ec4, #7873f5);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    border-radius: 12px;
+    z-index: 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* === Forms === */
+form label {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+form input,
+form textarea {
+    font-size: 1rem;
+    border-radius: 6px;
+    background-color: #444;
+    color: #ffffff;
+    border: 1px solid #777;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #bbb;
+    opacity: 1;
+}
+
+/* === Footer === */
+footer {
+    background-color: #1c1c2c;
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 50px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    p, li {
+        font-size: 1rem;
+    }
+}
