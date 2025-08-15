@@ -6,7 +6,12 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname, '/')));
 
-// Handle all routes and send index.html
+// Health check route for Render
+app.get('/healthz', (req, res) => {
+  res.sendStatus(200);
+});
+
+// Handle all other routes and send index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
