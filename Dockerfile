@@ -1,5 +1,5 @@
-# Use official OpenJDK 17
-FROM openjdk:17-jdk-alpine
+# Use OpenJDK 17 + Maven
+FROM maven:3.9.2-eclipse-temurin-17
 
 # Set working directory
 WORKDIR /app
@@ -7,11 +7,11 @@ WORKDIR /app
 # Copy all project files
 COPY . .
 
-# Build the app using Maven wrapper inside the container
-RUN ./mvnw clean package
+# Build the project using Maven
+RUN mvn clean package
 
 # Expose port 8080
 EXPOSE 8080
 
-# Run the Spring Boot app
+# Start the Spring Boot application
 CMD ["java", "-jar", "target/akashportfolio.jar"]
