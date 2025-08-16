@@ -1,0 +1,6 @@
+target/*.jar.original
+*.class
+*.log
+*.idea
+*.iml
+node_modules
